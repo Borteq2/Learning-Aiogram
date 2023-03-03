@@ -21,6 +21,10 @@ dp = Dispatcher(bot)
 count = 0
 
 
+async def on_startup(_):
+    print('Я РОДИВСЯ')
+
+
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     await message.answer('<em>скучное приветствие</em>', parse_mode='html')
@@ -65,5 +69,5 @@ async def start_command(message: types.Message):
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp)
+    executor.start_polling(dp, on_startup=on_startup)
 
