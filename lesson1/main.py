@@ -21,17 +21,24 @@ dp = Dispatcher(bot)
 count = 0
 
 
-@dp.message_handler(commands=['description'])
-async def description_command(message: types.Message):
-    await message.answer('Хороший бот, красивый, мощный')
-    await message.delete()
+@dp.message_handler(commands=['start'])
+async def start_command(message: types.Message):
+    await message.answer('<em>скучное приветствие</em>', parse_mode='html')
 
 
-@dp.message_handler(commands=['count'])
-async def check_count(message: types.Message):
-    global count
-    await message.answer(f'This button was pressed {count} time/s')
-    count += 1
+# @dp.message_handler(commands=['description'])
+# async def description_command(message: types.Message):
+#     await message.answer('Хороший бот, красивый, мощный')
+#     await message.delete()
+
+
+# @dp.message_handler(commands=['count'])
+# async def check_count(message: types.Message):
+#     global count
+#     await message.answer(f'This button was pressed {count} time/s')
+#     count += 1
+
+
 
 
 # @dp.message_handler()
@@ -41,20 +48,20 @@ async def check_count(message: types.Message):
 #     await message.reply('NO')
 
 
-@dp.message_handler(commands=['help'])
-async def help_command(message: types.Message):
-    await message.reply(text=HELP_COMMAND)
-
-
-@dp.message_handler(commands=['start'])
-async def help_command(message: types.Message):
-    await message.answer(text='Приветствую')
-    await message.delete()
-
-
-@dp.message_handler()  # ASCII
-async def send_random_message(message: types.Message):
-    await message.reply(random.choice(string.ascii_letters))
+# @dp.message_handler(commands=['help'])
+# async def help_command(message: types.Message):
+#     await message.reply(text=HELP_COMMAND)
+#
+#
+# @dp.message_handler(commands=['start'])
+# async def help_command(message: types.Message):
+#     await message.answer(text='Приветствую')
+#     await message.delete()
+#
+#
+# @dp.message_handler()  # ASCII
+# async def send_random_message(message: types.Message):
+#     await message.reply(random.choice(string.ascii_letters))
 
 
 if __name__ == '__main__':
