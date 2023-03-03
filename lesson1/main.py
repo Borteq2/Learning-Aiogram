@@ -30,6 +30,17 @@ async def start_command(message: types.Message):
     await message.answer('<em>скучное приветствие</em>', parse_mode='html')
 
 
+@dp.message_handler(commands=['give'])
+async def give_command(message: types.Message):
+    # @idstickerbot
+    await bot.send_sticker(message.from_user.id, sticker='CAACAgIAAxkBAAEH-YtkAe_WYGManU_Vc5TDLUOpQpKw7wACpSAAArnlcEskT9sMLTkXCC4E')
+    await message.delete()
+
+
+@dp.message_handler()
+async def give_emoji(message: types.Message):
+    await message.reply(f'{message.text}' ' 🥳')
+
 # @dp.message_handler(commands=['description'])
 # async def description_command(message: types.Message):
 #     await message.answer('Хороший бот, красивый, мощный')
