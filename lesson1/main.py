@@ -24,28 +24,28 @@ count = 0
 async def on_startup(_):
     print('Я РОДИВСЯ')
 
-# для групп
-@dp.message_handler(commands=['help'])
-async def start_command(message: types.Message):
-    await bot.send_message(chat_id=message.from_user.id,
-                           text=HELP_COMMAND,
-                           parse_mode='html')
-    await message.delete()
-
-
-@dp.message_handler(commands=['картинка'])
-async def send_image(message: types.Message):
-    await bot.send_photo(chat_id=message.from_user.id,
-                        photo='https://2ch.hk/b/src/266160769/16492546145510.png')
-    await message.delete()
-
-
-@dp.message_handler(commands=['location'])
-async def send_point(message: types.Message):
-    await bot.send_location(chat_id=message.from_user.id,
-                            latitude=55,
-                            longitude=74)
-    await message.delete()
+# # для групп
+# @dp.message_handler(commands=['help'])
+# async def start_command(message: types.Message):
+#     await bot.send_message(chat_id=message.from_user.id,
+#                            text=HELP_COMMAND,
+#                            parse_mode='html')
+#     await message.delete()
+#
+#
+# @dp.message_handler(commands=['картинка'])
+# async def send_image(message: types.Message):
+#     await bot.send_photo(chat_id=message.from_user.id,
+#                         photo='https://2ch.hk/b/src/266160769/16492546145510.png')
+#     await message.delete()
+#
+#
+# @dp.message_handler(commands=['location'])
+# async def send_point(message: types.Message):
+#     await bot.send_location(chat_id=message.from_user.id,
+#                             latitude=55,
+#                             longitude=74)
+#     await message.delete()
 
 
 # @dp.message_handler(commands=['start'])
@@ -106,6 +106,9 @@ async def send_point(message: types.Message):
 # @dp.message_handler()  # ASCII
 # async def send_random_message(message: types.Message):
 #     await message.reply(random.choice(string.ascii_letters))
+
+
+
 
 
 if __name__ == '__main__':
